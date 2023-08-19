@@ -1,0 +1,20 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "8000" 
+    deploy:
+      replicas: 3
+
+  db:
+    image: bitnami/mongodb:latest
+    ports:
+      - "27017:27017"
+    volumes: 
+      - db_data:/bitnami/mongodb
+
+volumes:
+  db_data:
+
+
